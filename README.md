@@ -1,4 +1,4 @@
-# ☁️ Projeto: Upload de Arquivos com Spring Boot + AWS S3
+# ☁️ Projeto: Gestão de Arquivos com Spring Boot + AWS S3
 
 Este projeto é uma aplicação Java com Spring Boot que realiza **upload**, **download**, **listagem** e **deleção** de arquivos em um bucket da AWS S3. Desenvolvido com as melhores práticas: segurança com `DefaultCredentialsProvider`, configuração externa via `application.yml` e integração limpa com o AWS SDK v2.
 
