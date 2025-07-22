@@ -10,20 +10,20 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v3
 
-    - name: Deploy via SSH
-      uses: appleboy/ssh-action@v0.1.10
-      with:
-        host: ${{ secrets.EC2_HOST }}
-        username: ${{ secrets.EC2_USER }}
-        key: ${{ secrets.EC2_SSH_KEY }}
-        script: |
-          cd ~/springboot-s3
-          git pull
-          ./mvnw clean package
-          docker build -t spring-storage .
-          docker stop spring-app || true
-          docker rm spring-app || true
-          docker run -d -p 8080:8080 --name spring-app spring-storage
+      - name: Deploy via SSH
+        uses: appleboy/ssh-action@v0.1.10
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ${{ secrets.EC2_USER }}
+          key: ${{ secrets.EC2_SSH_KEY }}
+          script: |
+            cd ~/springboot-s3 || exit 1
+            git pull || exit 1
+            ./mvnw clean package || exit 1
+            docker build -t spring-storage . || exit 1
+            docker stop spring-app || true
+            docker rm spring-app || true
+            docker run -d -p 8080:8080 --name spring-app spring-storage || exit 1
