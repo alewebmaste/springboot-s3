@@ -28,6 +28,8 @@ Aplicação Java com Spring Boot para gerenciamento de arquivos em um bucket da 
 
 ---
 
+
+
 ## ⚙️ Configuração
 
 ### `application.yml`
@@ -36,3 +38,17 @@ Aplicação Java com Spring Boot para gerenciamento de arquivos em um bucket da 
 aws:
   region: sa-east-1
   bucket: java-arquivos-ale
+```
+
+## 📘 Licença
+
+Este projeto está sob a licença MIT. Sinta-se livre para usar, modificar e contribuir.
+
+---
+
+## 👨‍🚀 Autor
+
+**Alexandre Webmaste**  
+Desenvolvedor Java | Cloud Enthusiast | DevOps Explorer  
+[GitHub](https://github.com/alewebmaste) • [LinkedIn](https://www.linkedin.com/in/borbabackend/)
+
