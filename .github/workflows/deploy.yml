@@ -20,6 +20,7 @@ jobs:
             cd ~/springboot-s3 || exit 1
             git pull || exit 1
             ./mvnw clean package || exit 1
+            cp target/*SNAPSHOT.jar .
             docker build -t spring-storage . || exit 1
             docker stop spring-app || true
             docker rm spring-app || true
