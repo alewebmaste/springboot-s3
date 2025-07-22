@@ -1,31 +1,34 @@
-# ☁️ Projeto: Gestão de Arquivos com Spring Boot + AWS S3
+# ☁️ Spring Boot + AWS S3 | Gestão de Arquivos
 
-Este projeto é uma aplicação Java com Spring Boot que realiza **upload**, **download**, **listagem** e **deleção** de arquivos em um bucket da AWS S3. Desenvolvido com as melhores práticas: segurança com `DefaultCredentialsProvider`, configuração externa via `application.yml` e integração limpa com o AWS SDK v2.
+Aplicação Java com Spring Boot para gerenciamento de arquivos em um bucket da AWS S3. Suporta **upload**, **download**, **listagem** e **remoção** via API REST, com segurança, escalabilidade e deploy automatizado via **GitHub Actions + Docker + EC2**.
 
 ---
 
 ## 🚀 Funcionalidades
 
-- ✅ Upload de arquivos via REST (multipart)
-- 📥 Download direto do S3 com Content-Type dinâmico
+- ✅ Upload de arquivos (`multipart/form-data`)
+- 📥 Download direto do S3 com `Content-Type` dinâmico
 - 📁 Listagem de objetos no bucket
 - ❌ Remoção de arquivos específicos
-- 🔐 Credenciais seguras com `DefaultCredentialsProvider`
+- 🔐 Autenticação segura via `DefaultCredentialsProvider`
+- 🐳 Deploy automatizado com GitHub Actions + EC2
 
 ---
 
-## 🛠️ Tecnologias usadas
+## 🛠️ Tecnologias
 
-- Java 17+
-- Spring Boot
-- Maven
-- AWS SDK for Java v2
-- Amazon S3
-- Postman / curl (para testes)
+| Camada         | Tecnologias                          |
+|----------------|--------------------------------------|
+| Backend        | Java 17+, Spring Boot                |
+| Build          | Maven                                |
+| Cloud Storage  | AWS S3, AWS SDK for Java v2          |
+| Containerização| Docker                               |
+| CI/CD          | GitHub Actions, Amazon EC2 (Linux)   |
+| Testes         | Postman, curl                        |
 
 ---
 
-## ⚙️ Configuração do projeto
+## ⚙️ Configuração
 
 ### `application.yml`
 
