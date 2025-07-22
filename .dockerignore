@@ -1,0 +1,13 @@
+# Pastas que não devem ir para o container
+target/
+.git/
+.aws/
+.mvn/
+.idea/
+
+# Arquivos que são inúteis ou sensíveis
+*.iml
+*.log
+*.env
+Dockerfile
+README.md
