@@ -1,10 +1,9 @@
 package com.borba.storage.service;
 
 import com.borba.storage.configuration.AwsProperties;
+import com.borba.storage.sns.SnsPublisher;
 import org.springframework.stereotype.Service;
-import software.amazon.awssdk.auth.credentials.AwsBasicCredentials;
 import software.amazon.awssdk.auth.credentials.DefaultCredentialsProvider;
-import software.amazon.awssdk.auth.credentials.StaticCredentialsProvider;
 import software.amazon.awssdk.core.ResponseBytes;
 import software.amazon.awssdk.core.sync.RequestBody;
 import software.amazon.awssdk.regions.Region;
@@ -35,6 +34,7 @@ public class S3Service {
                         .key(key)
                         .build(),
                 RequestBody.fromBytes(content));
+        SnsPublisher.publishMessage("Arquivo enviado para o bucket com sucesso!");
     }
 
     public byte[] downloadFile(String key){
