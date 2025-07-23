@@ -38,6 +38,11 @@ public class FileController {
         return s3Service.listFiles();
     }
 
+    @GetMapping("/teste")
+    public String hello(){
+        return "Hello word";
+    }
+
     @DeleteMapping("/{filename}")
     public ResponseEntity<String> delete(@PathVariable String filename){
         s3Service.deleteFiles(filename);
