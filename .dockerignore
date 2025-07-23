@@ -1,5 +1,4 @@
 # Pastas que não devem ir para o container
-target/
 .git/
 .aws/
 .mvn/
