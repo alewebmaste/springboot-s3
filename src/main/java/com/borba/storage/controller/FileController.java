@@ -40,7 +40,7 @@ public class FileController {
 
     @GetMapping("/teste")
     public String hello(){
-        return "Hello word";
+        return "Hello word automatizado";
     }
 
     @DeleteMapping("/{filename}")
