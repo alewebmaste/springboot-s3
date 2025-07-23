@@ -13,6 +13,15 @@ jobs:
       - name: Checkout código
         uses: actions/checkout@v3
 
+      - name: Setup Java
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Build com Maven
+        run: mvn clean package -DskipTests
+
       - name: Build da imagem Docker
         run: docker build -t ${{ secrets.DOCKER_USERNAME }}/spring-storage:latest .
 
