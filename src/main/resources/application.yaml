@@ -1,6 +1,7 @@
 aws:
   region: us-east-1
   bucket: bucket-test013
+  topic: arn:aws:sns:us-east-1:430118847461:s3-operation-alerts
 
 logging:
   level:

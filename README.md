@@ -1,6 +1,7 @@
-# ☁️ Spring Boot + AWS S3 | Gestão de Arquivos
+# ☁️ Spring Boot + AWS | Gestão de Arquivos com Deploy Automatizado
 
-Aplicação Java com Spring Boot para gerenciamento de arquivos em um bucket da AWS S3. Suporta **upload**, **download**, **listagem** e **remoção** via API REST, com segurança, escalabilidade e deploy automatizado via **GitHub Actions + Docker + EC2**.
+Aplicação Java com Spring Boot para gerenciamento de arquivos em um bucket da AWS S3.  
+Suporta **upload**, **download**, **listagem** e **remoção** via API REST — agora com **deploy automatizado via GitHub Actions**, containerização com **Docker**, e monitoramento em tempo real com **CloudWatch Logs**.
 
 ---
 
@@ -12,10 +13,11 @@ Aplicação Java com Spring Boot para gerenciamento de arquivos em um bucket da 
 - ❌ Remoção de arquivos específicos
 - 🔐 Autenticação segura via `DefaultCredentialsProvider`
 - 🐳 Deploy automatizado com GitHub Actions + EC2
+- 📡 Logs em tempo real enviados para AWS CloudWatch
 
 ---
 
-## 🛠️ Tecnologias
+## 🛠️ Tecnologias Utilizadas
 
 | Camada         | Tecnologias                          |
 |----------------|--------------------------------------|
@@ -24,11 +26,10 @@ Aplicação Java com Spring Boot para gerenciamento de arquivos em um bucket da 
 | Cloud Storage  | AWS S3, AWS SDK for Java v2          |
 | Containerização| Docker                               |
 | CI/CD          | GitHub Actions, Amazon EC2 (Linux)   |
+| Monitoramento  | Amazon CloudWatch Logs               |
 | Testes         | Postman, curl                        |
 
 ---
-
-
 
 ## ⚙️ Configuração
 
@@ -38,6 +39,25 @@ Aplicação Java com Spring Boot para gerenciamento de arquivos em um bucket da 
 aws:
   region: sa-east-1
   bucket: java-arquivos-ale
+
+```
+
+## 🔄 Pipeline Automatizada
+
+A aplicação conta com uma pipeline CI/CD completa, que garante deploy contínuo e monitoramento em tempo real:
+
+```mermaid
+graph TD
+    A[Push no GitHub] --> B[GitHub Actions dispara workflow]
+    B --> C[Build Maven: gera JAR]
+    C --> D[Build Docker: imagem criada]
+    D --> E[Push para Docker Hub]
+    E --> F[SSH para EC2 via chave privada]
+    F --> G[Pull da nova imagem]
+    G --> H[Restart do container]
+    H --> I[Aplicação no ar]
+    I --> J[CloudWatch Agent coleta logs]
+    J --> K[Logs visíveis no AWS CloudWatch]
 ```
 
 ## 📘 Licença

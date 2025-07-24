@@ -17,10 +17,12 @@ public class S3Service {
 
     private final S3Client s3Client;
     private final String  bucketName;
+    private final SnsPublisher snsPublisher;
 
-    public S3Service(AwsProperties props){
+    public S3Service(AwsProperties props, SnsPublisher snsPublisher){
 
         this.bucketName = props.getBucket();
+        this.snsPublisher = snsPublisher;
 
         this.s3Client = S3Client.builder()
                 .region(Region.of(props.getRegion()))
@@ -34,7 +36,7 @@ public class S3Service {
                         .key(key)
                         .build(),
                 RequestBody.fromBytes(content));
-        SnsPublisher.publishMessage("Arquivo enviado para o bucket com sucesso!");
+        snsPublisher.publishMessage("Arquivo enviado para o bucket com sucesso!");
     }
 
     public byte[] downloadFile(String key){

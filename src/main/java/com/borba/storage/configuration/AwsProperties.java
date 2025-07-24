@@ -9,6 +9,7 @@ public class AwsProperties {
 
     private String region;
     private String bucket;
+    private String topic;
 
     public String getBucket() {
         return bucket;
@@ -24,5 +25,13 @@ public class AwsProperties {
 
     public void setRegion(String region) {
         this.region = region;
+    }
+
+    public String getTopic() {
+        return topic;
+    }
+
+    public void setTopic(String topic) {
+        this.topic = topic;
     }
 }
