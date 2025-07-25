@@ -41,4 +41,7 @@ jobs:
             docker pull ${{ secrets.DOCKER_USERNAME }}/spring-storage:latest
             docker stop spring-app || true
             docker rm spring-app || true
-            docker run -d -p 8080:8080 --name spring-app ${{ secrets.DOCKER_USERNAME }}/spring-storage:latest
+            docker run -d -p 8080:8080 \
+              --name spring-app \
+              -e SPRING_PROFILES_ACTIVE=prod \
+              ${{ secrets.DOCKER_USERNAME }}/spring-storage:latest

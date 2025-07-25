@@ -1,0 +1,11 @@
+aws:
+  region: us-east-1
+  bucket: bucket-test013
+  topic: arn:aws:sns:us-east-1:000000000000:meu-topico-local
+  endpoint: http://localhost:4566
+
+logging:
+  level:
+    root: INFO
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"

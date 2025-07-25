@@ -10,6 +10,7 @@ public class AwsProperties {
     private String region;
     private String bucket;
     private String topic;
+    private String endpoint;
 
     public String getBucket() {
         return bucket;
@@ -33,5 +34,13 @@ public class AwsProperties {
 
     public void setTopic(String topic) {
         this.topic = topic;
+    }
+
+    public String getEndpoint() {
+        return endpoint;
+    }
+
+    public void setEndpoint(String endpoint) {
+        this.endpoint = endpoint;
     }
 }
