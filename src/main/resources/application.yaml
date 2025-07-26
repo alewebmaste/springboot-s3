@@ -3,6 +3,11 @@ aws:
   bucket: bucket-test013
   topic: arn:aws:sns:us-east-1:430118847461:s3-operation-alerts
 
+  sqs:
+    queue-url: https://sqs.us-east-1.amazonaws.com/430118847461/MinhaFilaPrincipal
+    dlq-url: https://sqs.us-east-1.amazonaws.com/430118847461/MinhaDLQ
+    region: us-east-1
+
 logging:
   level:
     root: INFO

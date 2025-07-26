@@ -11,6 +11,7 @@ public class AwsProperties {
     private String bucket;
     private String topic;
     private String endpoint;
+    private SqsProperties sqs;
 
     public String getBucket() {
         return bucket;
@@ -42,5 +43,13 @@ public class AwsProperties {
 
     public void setEndpoint(String endpoint) {
         this.endpoint = endpoint;
+    }
+
+    public SqsProperties getSqs() {
+        return sqs;
+    }
+
+    public void setSqs(SqsProperties sqs) {
+        this.sqs = sqs;
     }
 }

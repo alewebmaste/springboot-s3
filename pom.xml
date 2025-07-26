@@ -52,7 +52,10 @@
 			<version>1.12.700</version>
 		</dependency>
 
-
+		<dependency>
+			<groupId>software.amazon.awssdk</groupId>
+			<artifactId>sqs</artifactId>
+		</dependency>
 	</dependencies>
 
 	<dependencyManagement>
