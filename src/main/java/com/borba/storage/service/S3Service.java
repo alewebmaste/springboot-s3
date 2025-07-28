@@ -39,8 +39,7 @@ public class S3Service {
                         .key(key)
                         .build(),
                 RequestBody.fromBytes(content));
-        snsPublisher.publishMessage("SNS - Arquivo enviado para o bucket com sucesso!");
-        sqsProducer.sendMessage("SQS - Arquivo enviado para o bucket com sucesso");
+        sqsProducer.sendMessage("SQS - Arquivo enviado para o bucket com sucesso Key: " + key );
     }
 
     public byte[] downloadFile(String key){
