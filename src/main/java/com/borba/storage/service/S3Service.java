@@ -1,10 +1,9 @@
 package com.borba.storage.service;
 
 import com.borba.storage.configuration.AwsProperties;
-import com.borba.storage.sns.SnsPublisher;
 import com.borba.storage.sqs.SqsProducer;
 import org.springframework.stereotype.Service;
-import software.amazon.awssdk.auth.credentials.DefaultCredentialsProvider;
+import software.amazon.awssdk.auth.credentials.EnvironmentVariableCredentialsProvider;
 import software.amazon.awssdk.core.ResponseBytes;
 import software.amazon.awssdk.core.sync.RequestBody;
 import software.amazon.awssdk.regions.Region;
@@ -18,18 +17,16 @@ public class S3Service {
 
     private final S3Client s3Client;
     private final String  bucketName;
-    private final SnsPublisher snsPublisher;
     private final SqsProducer sqsProducer;
 
-    public S3Service(AwsProperties props, SnsPublisher snsPublisher, SqsProducer sqsProducer){
+    public S3Service(AwsProperties props,  SqsProducer sqsProducer){
 
         this.bucketName = props.getBucket();
-        this.snsPublisher = snsPublisher;
         this.sqsProducer = sqsProducer;
 
         this.s3Client = S3Client.builder()
                 .region(Region.of(props.getRegion()))
-                .credentialsProvider(DefaultCredentialsProvider.create())
+                .credentialsProvider(EnvironmentVariableCredentialsProvider.create())
                 .build();
     }
 
