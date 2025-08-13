@@ -6,9 +6,12 @@
 [![CI/CD](https://img.shields.io/badge/GitHub_Actions-Automated_Deploy-purple?logo=github-actions)](https://github.com/features/actions)
 [![License](https://img.shields.io/badge/License-MIT-lightgrey)](LICENSE)
 
+Uma aplicação Java com Spring Boot que não só gerencia arquivos na AWS S3 — ela voa!  
+Com metadados salvos no DynamoDB, processamento assíncrono via Lambda, mensageria com SQS e SNS, e deploy automatizado via GitHub Actions, tudo dentro de containers Docker.  
+Monitoramento? Claro! CloudWatch Logs garante que nada passe despercebido.  
+É arquitetura moderna, escalável e pronta pra produção. 💪☁️
 
-Aplicação Java com Spring Boot para gerenciamento de arquivos em um bucket da AWS S3.  
-Suporta **upload**, **download**, **listagem** e **remoção** via API REST — agora com **persistência de metadados no DynamoDB**, integração com **lambda**,**deploy automatizado via GitHub Actions**, containerização com **Docker**, e monitoramento em tempo real com **CloudWatch Logs**.
+
 ---
 
 ## 🚀 Funcionalidades
@@ -82,4 +85,5 @@ Este projeto está sob a licença MIT. Sinta-se livre para usar, modificar e con
 **Alexandre Webmaste**  
 Desenvolvedor Java | Cloud Enthusiast | DevOps Explorer  
 [GitHub](https://github.com/alewebmaste) • [LinkedIn](https://www.linkedin.com/in/borbabackend/)
+
 
