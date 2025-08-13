@@ -3,6 +3,9 @@ aws:
   bucket: bucket-test013
   topic: arn:aws:sns:us-east-1:430118847461:s3-operation-alerts
 
+  dynamodb:
+    table: Pedidos
+
   sqs:
     queue-url: https://sqs.us-east-1.amazonaws.com/430118847461/MinhaFilaPrincipal
     dlq-url: https://sqs.us-east-1.amazonaws.com/430118847461/MinhaDLQ
@@ -12,6 +15,6 @@ logging:
   level:
     root: INFO
     org.springframework.boot: INFO
-    com.seu.pacote: DEBUG  # seu pacote principal
+    com.seu.pacote: DEBUG
   pattern:
     console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"

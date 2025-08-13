@@ -19,12 +19,14 @@ public class FileController {
         this.s3Service = s3Service;
     }
 
+    //Faz o upload no S3
     @PostMapping("/upload")
     public ResponseEntity<String> upload(@RequestParam MultipartFile file) throws IOException {
         s3Service.uploadFile(file.getOriginalFilename(), file.getBytes());
         return ResponseEntity.ok("Upload feito com sucesso");
     }
 
+    //Faz o download no s3
     @GetMapping("/download/{filename}")
     public ResponseEntity<byte[]> download(@PathVariable String filename){
         byte[] content = s3Service.downloadFile(filename);
@@ -33,16 +35,19 @@ public class FileController {
                 .body(content);
     }
 
+    //lista os arquivos que estão no bucket s3
     @GetMapping
     public List<String> listFiles(){
         return s3Service.listFiles();
     }
 
+    //apenas para testes
     @GetMapping("/teste")
     public String hello(){
         return "Hello word automatizado";
     }
 
+    //Deleta arquivos do bucket s3
     @DeleteMapping("/{filename}")
     public ResponseEntity<String> delete(@PathVariable String filename){
         s3Service.deleteFiles(filename);

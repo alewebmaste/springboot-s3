@@ -30,6 +30,7 @@ public class S3Service {
                 .build();
     }
 
+    //Faz upload no s3 e notifica o usuario via sqs
     public void uploadFile(String key, byte[] content){
         s3Client.putObject(PutObjectRequest.builder()
                         .bucket(bucketName)
@@ -61,6 +62,8 @@ public class S3Service {
                 .toList();
     }
 
+    //Deleta arquivos no bucket
+    //É disparada a função lambda_s3_delete
     public void deleteFiles(String key){
         s3Client.deleteObject(DeleteObjectRequest.builder()
                         .bucket(bucketName)

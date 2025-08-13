@@ -12,6 +12,7 @@ public class AwsProperties {
     private String topic;
     private String endpoint;
     private SqsProperties sqs;
+    private DynamoDbProperties dynamoDb;
 
     public String getBucket() {
         return bucket;
@@ -51,5 +52,13 @@ public class AwsProperties {
 
     public void setSqs(SqsProperties sqs) {
         this.sqs = sqs;
+    }
+
+    public DynamoDbProperties getDynamoDb() {
+        return dynamoDb;
+    }
+
+    public void setDynamoDb(DynamoDbProperties dynamoDb) {
+        this.dynamoDb = dynamoDb;
     }
 }
